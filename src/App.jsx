@@ -3,6 +3,7 @@ import { useEffect } from 'react'; // Importar useEffect
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Container, Navbar, Nav, Card, Button, Row, Col, Badge } from 'react-bootstrap';
+import { FaYoutube } from 'react-icons/fa'; // <--- Agrega esto
 import { FaWhatsapp } from 'react-icons/fa';
 
 // IMPORTAMOS LOS ICONOS
@@ -36,28 +37,31 @@ function App() {
       id: 1,
       title: "Sistema POS & Inventario",
       description: "Solución completa para comercio real. Gestiona ventas, stock en tiempo real y reportes. Backend seguro con Node/Express y MySQL.",
-      tags: ["React", "Node", "MySQL", "Railway"],
-      repoLink: "https://github.com/",
-      demoLink: "#", 
-      image: "https://placehold.co/600x350/1e293b/38bdf8?text=POS+System" // RECUERDA CAMBIAR ESTO
+      tags: ["React", "Node", "MySQL", "Railway", "Git"],
+      repoLink: "https://github.com/JhonLoaiza/Sistema-POS-Frontend",
+      videoLink: "https://youtu.be/4bZGvag33wk",
+      demoLink: null, 
+      image: "public/POS.png" // RECUERDA CAMBIAR ESTO
     },
     {
       id: 2,
       title: "ERP Gestión Impresión 3D",
       description: "App para mi emprendimiento. Calcula costos de filamento, gestiona pedidos y tiempos de producción. Dashboard administrativo.",
-      tags: ["React", "JS", "Bootstrap", "Vercel"],
-      repoLink: "https://github.com/",
-      demoLink: "https://tu-demo.vercel.app",
-      image: "https://placehold.co/600x350/1e293b/e67e22?text=ERP+3D"
+      tags: ["React", "JS", "Bootstrap", "Vercel", "Git"],
+      repoLink: "https://github.com/JhonLoaiza/inventario-3d-frontend",
+      videoLink: "https://youtu.be/5TBH7URbDJQ",
+      demoLink: null,
+      image: "public/Inventario.png" // RECUERDA CAMBIAR ESTO
     },
     {
       id: 3,
       title: "Plataforma de Trueque (MVP)",
       description: "Proyecto académico para gestión de intercambios. Interfaz Mobile-First, gestión de estados complejos y componentes reutilizables.",
       tags: ["React", "Bootstrap", "Git"],
-      repoLink: "https://github.com/",
-      demoLink: "#", 
-      image: "https://placehold.co/600x350/1e293b/2ecc71?text=Trueque+App"
+      repoLink: "https://github.com/JhonLoaiza/PWA-VITE",
+      videoLink: null,
+      demoLink: "https://trueque-pwa.netlify.app/", 
+      image: "public/Truekeo.png" // RECUERDA CAMBIAR ESTO
     }
   ];
 
@@ -77,7 +81,7 @@ function App() {
               <Nav.Link href="#contacto" className="px-3">Contacto</Nav.Link>
               
               {/* Icono de GitHub en el menú */}
-              <Button variant="outline-light" size="sm" className="ms-3 rounded-circle p-2 d-flex align-items-center justify-content-center" href="https://github.com/" target="_blank" style={{width: '40px', height: '40px'}}>
+              <Button variant="outline-light" size="sm" className="ms-3 rounded-circle p-2 d-flex align-items-center justify-content-center" href="https://github.com/JhonLoaiza" target="_blank" style={{width: '40px', height: '40px'}}>
                 <FaGithub size={20} />
               </Button>
             </Nav>
@@ -103,7 +107,7 @@ function App() {
                 <a href="#proyectos" className="btn btn-accent btn-lg shadow d-flex align-items-center gap-2">
                    <FaCode /> Ver Proyectos
                 </a>
-                <a href="/cv_jhon.pdf" target="_blank" className="btn btn-outline-accent btn-lg d-flex align-items-center gap-2">
+                <a href="/cv-jhon-loaiza.pdf" download="CV_Jhon_Loaiza.pdf" target="_blank" className="btn btn-outline-accent btn-lg d-flex align-items-center gap-2">
                    <FaExternalLinkAlt size={16}/> Descargar CV
                 </a>
               </div>
@@ -192,14 +196,41 @@ function App() {
                     ))}
                   </div>
 
-                  <div className="mt-auto d-flex gap-2">
-                    <Button variant={proj.demoLink === '#' ? "secondary" : "primary"} className="w-100 fw-bold d-flex align-items-center justify-content-center gap-2" href={proj.demoLink} target="_blank" disabled={proj.demoLink === '#'}>
-                      <FaExternalLinkAlt size={14} /> {proj.demoLink === '#' ? 'En Desarrollo' : 'Demo'}
+                 <div className="mt-auto d-flex gap-2">
+  
+                  {/* LOGICA CONDICIONAL DE BOTONES */}
+                  {proj.demoLink ? (
+                    // CASO 1: SI TIENE DEMO LIVE (El Trueque) -> Botón Azul
+                    <Button 
+                      variant="primary" // Azul
+                      className="w-100 fw-bold d-flex align-items-center justify-content-center gap-2" 
+                      href={proj.demoLink} 
+                      target="_blank"
+                    >
+                      <FaExternalLinkAlt size={16} /> Ver Demo Live
                     </Button>
-                    <Button variant="outline-light" className="w-100 fw-bold d-flex align-items-center justify-content-center gap-2" href={proj.repoLink} target="_blank">
-                      <FaGithub size={16} /> Código
+                  ) : (
+                    // CASO 2: SI ES VIDEO (POS y ERP) -> Botón Rojo
+                    <Button 
+                      variant="danger" // Rojo YouTube
+                      className="w-100 fw-bold d-flex align-items-center justify-content-center gap-2" 
+                      href={proj.videoLink} 
+                      target="_blank"
+                    >
+                      <FaYoutube size={18} /> Ver Video
                     </Button>
-                  </div>
+                  )}
+
+                  {/* BOTÓN DE CÓDIGO (Siempre igual) */}
+                  <Button 
+                    variant="outline-light" 
+                    className="w-100 fw-bold d-flex align-items-center justify-content-center gap-2" 
+                    href={proj.repoLink} 
+                    target="_blank"
+                  >
+                    <FaGithub size={18} /> Código
+                  </Button>
+                </div>
                 </Card.Body>
               </Card>
             </Col>
@@ -212,15 +243,15 @@ function App() {
         <Container>
           <h4 className="text-white fw-bold mb-4">Contáctame</h4>
           <div className="d-flex justify-content-center gap-4 mb-4">
-              <a href="https://linkedin.com" target="_blank" className="text-white text-decoration-none d-flex flex-column align-items-center gap-2">
+              <a href="https://www.linkedin.com/in/jhon-loaiza-64a8a4241/" target="_blank" className="text-white text-decoration-none d-flex flex-column align-items-center gap-2">
                   <div className="p-3 rounded-circle bg-primary text-white"><FaLinkedin size={24} /></div>
                   <span className="small">LinkedIn</span>
               </a>
-              <a href="https://github.com" target="_blank" className="text-white text-decoration-none d-flex flex-column align-items-center gap-2">
+              <a href="https://github.com/JhonLoaiza" target="_blank" className="text-white text-decoration-none d-flex flex-column align-items-center gap-2">
                   <div className="p-3 rounded-circle bg-dark border border-secondary text-white"><FaGithub size={24} /></div>
                   <span className="small">GitHub</span>
               </a>
-              <a href="mailto:tuemail@ejemplo.com" className="text-white text-decoration-none d-flex flex-column align-items-center gap-2">
+              <a href="mailto:loaizajhon195@gmail.com" className="text-white text-decoration-none d-flex flex-column align-items-center gap-2">
                   <div className="p-3 rounded-circle bg-danger text-white"><FaEnvelope size={24} /></div>
                   <span className="small">Email</span>
               </a>
