@@ -41,7 +41,7 @@ function App() {
       repoLink: "https://github.com/JhonLoaiza/Sistema-POS-Frontend",
       videoLink: "https://youtu.be/4bZGvag33wk",
       demoLink: null, 
-      image: "public/POS.png" // RECUERDA CAMBIAR ESTO
+      image: "/POS.png" // RECUERDA CAMBIAR ESTO
     },
     {
       id: 2,
@@ -51,7 +51,7 @@ function App() {
       repoLink: "https://github.com/JhonLoaiza/inventario-3d-frontend",
       videoLink: "https://youtu.be/5TBH7URbDJQ",
       demoLink: null,
-      image: "public/Inventario.png" // RECUERDA CAMBIAR ESTO
+      image: "/Inventario.png" // RECUERDA CAMBIAR ESTO
     },
     {
       id: 3,
@@ -61,7 +61,7 @@ function App() {
       repoLink: "https://github.com/JhonLoaiza/PWA-VITE",
       videoLink: null,
       demoLink: "https://trueque-pwa.netlify.app/", 
-      image: "public/Truekeo.png" // RECUERDA CAMBIAR ESTO
+      image: "/Truekeo.png" // RECUERDA CAMBIAR ESTO
     }
   ];
 
