@@ -1,0 +1,129 @@
+/* src/index.css */
+:root {
+  --bg-dark: #0f172a;     /* Color de fondo principal (azul oscuro profundo) */
+  --bg-card: #1e293b;     /* Color de las tarjetas (un poco más claro) */
+  --text-primary: #f8fafc; /* Texto blanco */
+  --text-secondary: #94a3b8; /* Texto gris claro */
+  --accent: #38bdf8;      /* Azul vibrante para destacar */
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  margin: 0;
+  padding-top: 70px; /* Espacio para la navbar fija */
+}
+
+/* Navbar personalizada */
+.custom-navbar {
+    background-color: rgba(15, 23, 42, 0.95) !important; /* Fondo semitransparente */
+    backdrop-filter: blur(10px); /* Efecto borroso moderno */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar-brand-custom {
+    font-weight: 700;
+    color: var(--accent) !important;
+    letter-spacing: 1px;
+}
+
+/* Hero Section con degradado */
+.hero-section {
+    padding: 100px 0 80px;
+    /* Un degradado sutil de fondo */
+    background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.1) 0%, rgba(15, 23, 42, 0) 60%);
+}
+
+.highlight-text {
+    color: var(--accent);
+    font-weight: 700;
+}
+
+/* Badges/Skills */
+.tech-badge {
+    background-color: rgba(56, 189, 248, 0.15) !important;
+    color: var(--accent) !important;
+    border: 1px solid var(--accent);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* Tarjetas de Proyectos */
+.project-card {
+    background-color: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.project-card:hover {
+    transform: translateY(-8px); /* Se levanta al pasar el mouse */
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    border-color: var(--accent);
+}
+
+.card-title-custom {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.card-text-custom {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+/* Botones */
+.btn-accent {
+    background-color: var(--accent);
+    color: var(--bg-dark);
+    font-weight: 600;
+    border: none;
+    padding: 10px 25px;
+}
+
+.btn-accent:hover {
+    background-color: #0ea5e9; /* Un azul un poco más oscuro al pasar el mouse */
+    color: white;
+}
+
+.btn-outline-accent {
+    border: 2px solid var(--accent);
+    color: var(--accent);
+    font-weight: 600;
+    padding: 10px 25px;
+}
+
+.btn-outline-accent:hover {
+    background-color: var(--accent);
+    color: var(--bg-dark);
+}
+
+.about-glass-card {
+    /* Fondo oscuro semitransparente */
+    background: rgba(30, 41, 59, 0.70);
+    /* Efecto de desenfoque (blur) detrás del vidrio */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px); /* Para Safari */
+    /* Borde sutil brillante */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    /* Sombra suave para dar profundidad */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    border-radius: 24px; /* Bordes más redondeados */
+    overflow: hidden;
+    position: relative;
+}
+
+/* Un efecto de luz sutil en la esquina */
+.about-glass-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, rgba(0,0,0,0) 70%);
+    transform: rotate(30deg);
+    pointer-events: none;
+}
